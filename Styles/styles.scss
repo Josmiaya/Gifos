@@ -120,6 +120,10 @@ h3 {
     &:checked{
       ~.menu {
         display: flex;
+        width: 110%;
+        .create {
+          display: none;
+        }
       }
       ~.show-menu{
         .burguer-menu{
@@ -183,15 +187,19 @@ background-color: $purpleMain;
 
 .searchbox {
   align-items: center;
+  display: block;
 
   .imageTopSearch {
-    position: relative;
+    // position: relative;
     display: flex;
-    width: 273px;
     height: 130px;
-    margin-left: 13%;
-    margin-right: 13%;
-    justify-content: center;
+    // margin-left: 50%;
+    // padding-left: 25%;
+    // justify-content: center;
+    img {
+      width: 273px;
+      margin: 0 auto;
+    }
   }
 
   .searchBar {
@@ -211,7 +219,7 @@ background-color: $purpleMain;
       position: absolute;
       margin: 15px 20px 15px 20em;
     }
- }
+}
 .textDownBar {
   p {
 
@@ -394,14 +402,38 @@ background-color: $purpleMain;
   .containercarousel{
       overflow: hidden;
   }
+  .checkbox-menu{
+    display: none;
+    &:checked{
+      ~.menu {
+        display: flex;
+        width: 105%;
+      }
+      ~.show-menu{
+        .burguer-menu{
+          display: none;
+        }
+        .close-menu{
+          display: none;
+        }
+      }
+    }
+  }
   .button{
       display: block;
+  }
+  .menu {
+    width: 100vws;
   }
   .searchbox {
     align-items: center;
   
     .imageTopSearch {
-      margin-left: 250px;
+      height: 190px;
+      img {
+        width: 399px;
+        // height: 190px;
+      }
     }
   }
 }
@@ -411,8 +443,7 @@ background-color: $purpleMain;
   font-family: $MonsBold;
   font-size: 35px;
   font-weight: normal;
-  line-height: 33px;
-  margin: 60px 4px;;
+  margin: 60px 4px;
   letter-spacing: 0;
   color: $purpleMain;
   text-align: center;
@@ -427,11 +458,11 @@ background-color: $purpleMain;
     justify-content: space-between;
     margin: 41px 14px 0px 22px;
     height: 49px;
-    z-index: 100;
+    z-index: 99;
     position: relative;
     
     .logo {
-      margin: -20px 0px 0px 156px;
+      margin: -12px 0px 0px 156px;
       
       .logo-mobile{
         display: none;
@@ -443,75 +474,96 @@ background-color: $purpleMain;
         height: 59.1px;
       }
     }
-    
-    .menu {
-      background-color: $purpleMain;
-      opacity: 0.9;
-      width: 375px;
-      position: absolute;
-      display: flex;
-      flex-direction: row;
-      margin-top: 40px;
-      height: 0px;
-      right: 0;
-      list-style: none;
-      overflow: hidden;
-      align-items: center;
-      li {
+
+    .menu-wrapper {
+      padding: 0;
+      margin-top: -47px;
+      margin-right: -50px;
+      #toggle:checked ~ ul{
+        background-color: white;
         height: 60px;
-        width: 375px;
-        background-color: $purpleMain;
-        margin: 16px 0 8px 16px;
-        .nav-item {
+      }
+    }
+      
+      .menu {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        margin-top: 40px;
+        margin-left: -40px;
+        list-style: none;
+        overflow: hidden;
+        align-items: flex-start;
+        
+        li {
+          opacity: 1;
+          height: 0px;
           background-color: $purpleMain;
-          text-decoration: none;
-          color: white;
-          font-size: 16px;
-          display: flex;
-          justify-content: center;
-          position: relative;
-          letter-spacing: 0;
-          line-height: 60px;
-          font-size: 15px;
-        }
-        .lineaMenu {
-          justify-content: center;
-          width: 41px;
-          height: 0.1px;
-        }
-      }
-    }
-    .checkbox-menu{
-      display: none;
-      &:checked{
-        ~.menu {
-          display: flex;
-        }
-        ~.show-menu{
-          .burguer-menu{
+          margin: 0 0 0 0;
+          z-index: 100;
+          .nav-item {
+            display: inline-flex;
+            background-color: white;
+            text-decoration: none;
+            color: $purpleMain;
+            margin-left: 0px;
+            font-size: 16px;
+            display: flex;
+            justify-content: end;
+            position: relative;
+            letter-spacing: 0;
+            line-height: 60px;
+            font-size: 15px;
+          }
+          .lineaMenu {
             display: none;
-          }
-          .close-menu{
-            display: block;
+            justify-content: center;
+            width: 0px;
+            height: 0px;
           }
         }
       }
-    }
-    .show-menu{
-      margin: 47px 27px 34px 0;
-      width: 15px;
-      height: 15px;
-      cursor: pointer;
-      .burguer-menu{
-        width: 100%;
-        height: 100%;
-      }
-      .close-menu{
-        width: 100%;
-        height: 100%;
+      .checkbox-menu{
         display: none;
+        &:checked{
+          ~.menu {
+            display: flex;
+            width: 710px;
+            .create {
+              display: flex;
+              margin-right: 150px;
+            }
+            #favs {
+              justify-content: center;
+              margin-left: -30px;
+            }
+          }
+          ~.show-menu{
+            .burguer-menu{
+              display: none;
+            }
+            .close-menu{
+              display: none;
+            }
+          }
+        }
       }
-    }
+      .show-menu{
+        margin: 47px 27px 34px 0;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        .burguer-menu{
+          display: none;
+          width: 100%;
+          height: 100%;
+        }
+        .close-menu{
+          width: 100%;
+          height: 100%;
+          display: none;
+        }
+      }
   }
     .tittleHome { 
       margin: 80px 400px;

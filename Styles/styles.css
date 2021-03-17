@@ -158,6 +158,11 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 110%;
+}
+
+.navbar .checkbox-menu:checked ~ .menu .create {
+  display: none;
 }
 
 .navbar .checkbox-menu:checked ~ .show-menu .burguer-menu {
@@ -226,20 +231,19 @@ h3 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  display: block;
 }
 
 .searchbox .imageTopSearch {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 273px;
   height: 130px;
-  margin-left: 13%;
-  margin-right: 13%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+}
+
+.searchbox .imageTopSearch img {
+  width: 273px;
+  margin: 0 auto;
 }
 
 .searchbox .searchBar {
@@ -468,8 +472,26 @@ h3 {
   .containercarousel {
     overflow: hidden;
   }
+  .checkbox-menu {
+    display: none;
+  }
+  .checkbox-menu:checked ~ .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 105%;
+  }
+  .checkbox-menu:checked ~ .show-menu .burguer-menu {
+    display: none;
+  }
+  .checkbox-menu:checked ~ .show-menu .close-menu {
+    display: none;
+  }
   .button {
     display: block;
+  }
+  .menu {
+    width: 100vws;
   }
   .searchbox {
     -webkit-box-align: center;
@@ -477,7 +499,10 @@ h3 {
             align-items: center;
   }
   .searchbox .imageTopSearch {
-    margin-left: 250px;
+    height: 190px;
+  }
+  .searchbox .imageTopSearch img {
+    width: 399px;
   }
 }
 
@@ -486,7 +511,6 @@ h3 {
     font-family: "Montserrat", sans-serif;
     font-size: 35px;
     font-weight: normal;
-    line-height: 33px;
     margin: 60px 4px;
     letter-spacing: 0;
     color: #572EE5;
@@ -508,11 +532,11 @@ h3 {
             justify-content: space-between;
     margin: 41px 14px 0px 22px;
     height: 49px;
-    z-index: 100;
+    z-index: 99;
     position: relative;
   }
   .navbar .logo {
-    margin: -20px 0px 0px 156px;
+    margin: -12px 0px 0px 156px;
   }
   .navbar .logo .logo-mobile {
     display: none;
@@ -525,10 +549,16 @@ h3 {
     width: 59.1px;
     height: 59.1px;
   }
+  .navbar .menu-wrapper {
+    padding: 0;
+    margin-top: -47px;
+    margin-right: -50px;
+  }
+  .navbar .menu-wrapper #toggle:checked ~ ul {
+    background-color: white;
+    height: 60px;
+  }
   .navbar .menu {
-    background-color: #572EE5;
-    opacity: 0.9;
-    width: 375px;
     position: absolute;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -538,42 +568,47 @@ h3 {
         -ms-flex-direction: row;
             flex-direction: row;
     margin-top: 40px;
-    height: 0px;
-    right: 0;
+    margin-left: -40px;
     list-style: none;
     overflow: hidden;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
   .navbar .menu li {
-    height: 60px;
-    width: 375px;
+    opacity: 1;
+    height: 0px;
     background-color: #572EE5;
-    margin: 16px 0 8px 16px;
+    margin: 0 0 0 0;
+    z-index: 100;
   }
   .navbar .menu li .nav-item {
-    background-color: #572EE5;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    background-color: white;
     text-decoration: none;
-    color: white;
+    color: #572EE5;
+    margin-left: 0px;
     font-size: 16px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
     position: relative;
     letter-spacing: 0;
     line-height: 60px;
     font-size: 15px;
   }
   .navbar .menu li .lineaMenu {
+    display: none;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 41px;
-    height: 0.1px;
+    width: 0px;
+    height: 0px;
   }
   .navbar .checkbox-menu {
     display: none;
@@ -582,12 +617,25 @@ h3 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    width: 710px;
+  }
+  .navbar .checkbox-menu:checked ~ .menu .create {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 150px;
+  }
+  .navbar .checkbox-menu:checked ~ .menu #favs {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-left: -30px;
   }
   .navbar .checkbox-menu:checked ~ .show-menu .burguer-menu {
     display: none;
   }
   .navbar .checkbox-menu:checked ~ .show-menu .close-menu {
-    display: block;
+    display: none;
   }
   .navbar .show-menu {
     margin: 47px 27px 34px 0;
@@ -596,6 +644,7 @@ h3 {
     cursor: pointer;
   }
   .navbar .show-menu .burguer-menu {
+    display: none;
     width: 100%;
     height: 100%;
   }
